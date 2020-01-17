@@ -78,6 +78,7 @@ class App extends React.Component {
           </li>
         </ul>
       </div>
+      
       <div className='interface__control-panel'>
         <form className='form'>
           <div className='dialog-board'>
