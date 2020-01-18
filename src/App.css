@@ -6,10 +6,10 @@
   flex: 1 1 auto;
 }
 .interface__control-panel {
-  flex: 0 0 20rem;
-  width: 10px;
+  /* flex: 0 0 20rem; */
+  /* width: 10px; */
   background: #9dcfaa;
-  padding-right: 500px;
+  padding-right: 50px;
 }
 .product-list {
   display: flex;
@@ -20,7 +20,7 @@
   list-style-type: none;
   margin: 10px;
   flex: 0 0 calc(25% - 0.625rem);
-  min-width: 25%;
+  /* min-width: 25%; */
 }
 .product {
   flex-direction: column;
@@ -43,4 +43,4 @@
   display: flex;
 }
 
-flex: 1 1 auto;
+/* flex: 1 1 auto; */
