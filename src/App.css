@@ -9,6 +9,7 @@
   flex: 0 0 20rem;
   width: 10px;
   background: #9dcfaa;
+  padding-right: 500px;
 }
 .product-list {
   display: flex;
