@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "442970d1c3a1a7806c2d5bf99a33b112",
+    "revision": "c811a18754ccf34ece8f0468247c8aec",
     "url": "/vending-machine-react/index.html"
   },
   {
-    "revision": "6a09676fcdf583ac2417",
-    "url": "/vending-machine-react/static/css/main.8d709045.chunk.css"
+    "revision": "789990922e19d099701b",
+    "url": "/vending-machine-react/static/css/main.c2e5f2c5.chunk.css"
   },
   {
     "revision": "6b1e8d98bb49fd377c54",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/vending-machine-react/static/js/2.aae89e8c.chunk.js.LICENSE"
   },
   {
-    "revision": "6a09676fcdf583ac2417",
-    "url": "/vending-machine-react/static/js/main.5c486484.chunk.js"
+    "revision": "789990922e19d099701b",
+    "url": "/vending-machine-react/static/js/main.9f7903df.chunk.js"
   },
   {
     "revision": "39769b6a3d4c32ac285a",
