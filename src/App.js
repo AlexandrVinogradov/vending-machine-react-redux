@@ -25,64 +25,38 @@ class App extends React.Component {
       { name: 'Mentos', price: 50, desc: 'Chewing pills', id: 5 },
       { name: 'Mountain dew', price: 170, desc: 'Cold drink', id: 6 },
     ],
+    coins: []
   }
 
   render() {
-    let money = 57
-    let bills = [10, 5, 2, 1]
-    let p = 0
-     while (p === money) {
+    // const counterOfChange = () => {
+      let coins = []
+      let money = 57
+      let bills = [10, 5, 2, 1]
+      let p = 0
       let i = 0
-      let z = Math.floor((money-p)/bills[i]) 
-      p += bills[i] * z 
-      i++
-     } 
-     console.log(p);
+       while (p<money) {
+        let z = Math.floor((money-p)/bills[i])
+          coins.push(z)
+          p += bills[i] * z 
+          i++
+          console.log(p);
+          console.log(z);
+          console.log(coins);
+       }
+
+
+
+    // }
+    // counterOfChange();
+    
+    // componentDidUpdate(prevProps) {
+    //   // this.setState({
+    //   //   coins: coins
+    //   // })
+    //  }
 
     //======================================================================
-    // var bills = [5, 10, 20, 50, 100];
-    // var money = mod(89);
-    
-    // function mod(num){
-    //     if (num % 5 === 0){
-    //         return num;
-    //     }else{
-    //         return num + 5 - num % 5
-    //     }
-    // }
-    
-    // function foo(num){
-    //     var index = bills.length - 1;
-    //     var splits = [];
-    //     while (money >= bills[0]){
-    //         if (money >= bills[index]){
-    //            money -= bills[index];
-    //            splits.push(bills[index]);
-    //         }else{
-    //             index--;
-    //         }
-    //     }
-    //     return splits;
-    // }
-    // console.log(foo(money));
-
-    //====================================================================
-    // const makeChange = (change) => {
-    //   if (change < 0)
-    //     return Number.MAX_VALUE;
-    
-    //   if (change === 1 || change === 2 || change === 5 || change === 10) {
-    //     return 1;
-    //   }
-    
-    //   let min1 = makeChange(change - 1);
-    //   let min2 = makeChange(change - 2);
-    //   let min5 = makeChange(change - 5);
-    //   let min10 = makeChange(change - 10);
-    
-    //   return Math.min(min1, min2, min5, min10) + 1;
-    // }
-    //console.log(makeChange(100));
 
     const foundSelectedProduct = this.state.products.find(p => p.id === this.state.selectedProduct)
     const foundInputSelectedProduct = this.state.products.find(p => p.id === this.state.productInputValue)
@@ -103,10 +77,11 @@ class App extends React.Component {
     }
     const balanceInputValue = (e) => {
       this.setState({
-        balanceInputValue: e.currentTarget.value
+        balanceInputValue: e.currentTarget.value,
+        // coins: coins
       })
     }
-
+    // console.log(this.state.coins);
     // console.log(this.state.selectedProduct ? foundInputSelectedProduct.price : null);
     // console.log(this.state.change);
 
