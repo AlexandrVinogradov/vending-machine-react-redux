@@ -1,16 +1,25 @@
 import React from 'react';
 import '../../App.css';
 
+const CoinChange = props => {
+  return<>
+    {props.coins10 ? <div>10 R: {props.coins10} coins</div> : null}
+    {props.coins5 ? <div>5 R: {props.coins5} coins</div> : null}
+    {props.coins2 ? <div>2 R: {props.coins2} coins</div> : null}
+    {props.coins1 ? <div>1 R: {props.coins1} coins</div> : null}
+  </>
+}
 const ResultForm = props => {
+  const coinChange = props.coins.map(c => <CoinChange coins10={c[10]} coins5={c[5]} coins2={c[2]} coins1={c[1]} />)
+
   return <div>
       <div className='dialog-board'>
-
         <span>{props.selectedProduct ? 'Take your product and change' : '>'}</span>
-
       </div>
       <div className='conclusion'>
         <div className='product'>
-          <span>{props.change ? props.change + ' R' : null} </span>
+          {coinChange}
+          <span>{props.change ? props.coins + ' R' : null} </span>
         </div>
         <div className='product result' onClick={props.takeProduct} >
           <span>{props.selectedProduct ? props.foundSelectedProduct.name : null}</span>
