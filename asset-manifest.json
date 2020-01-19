@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/vending-machine-react/static/css/main.148a1c80.chunk.css",
-    "main.js": "/vending-machine-react/static/js/main.c2685e49.chunk.js",
-    "main.js.map": "/vending-machine-react/static/js/main.c2685e49.chunk.js.map",
+    "main.css": "/vending-machine-react/static/css/main.216d45f9.chunk.css",
+    "main.js": "/vending-machine-react/static/js/main.e61c2597.chunk.js",
+    "main.js.map": "/vending-machine-react/static/js/main.e61c2597.chunk.js.map",
     "runtime-main.js": "/vending-machine-react/static/js/runtime-main.949caf58.js",
     "runtime-main.js.map": "/vending-machine-react/static/js/runtime-main.949caf58.js.map",
-    "static/js/2.684b93a8.chunk.js": "/vending-machine-react/static/js/2.684b93a8.chunk.js",
-    "static/js/2.684b93a8.chunk.js.map": "/vending-machine-react/static/js/2.684b93a8.chunk.js.map",
+    "static/js/2.46eda8bb.chunk.js": "/vending-machine-react/static/js/2.46eda8bb.chunk.js",
+    "static/js/2.46eda8bb.chunk.js.map": "/vending-machine-react/static/js/2.46eda8bb.chunk.js.map",
     "index.html": "/vending-machine-react/index.html",
-    "precache-manifest.d1c4463067d9d89cd6250dc4ecb47596.js": "/vending-machine-react/precache-manifest.d1c4463067d9d89cd6250dc4ecb47596.js",
+    "precache-manifest.93c80db24f2e7046ef8eebbda1508599.js": "/vending-machine-react/precache-manifest.93c80db24f2e7046ef8eebbda1508599.js",
     "service-worker.js": "/vending-machine-react/service-worker.js",
-    "static/css/main.148a1c80.chunk.css.map": "/vending-machine-react/static/css/main.148a1c80.chunk.css.map",
-    "static/js/2.684b93a8.chunk.js.LICENSE": "/vending-machine-react/static/js/2.684b93a8.chunk.js.LICENSE"
+    "static/css/main.216d45f9.chunk.css.map": "/vending-machine-react/static/css/main.216d45f9.chunk.css.map",
+    "static/js/2.46eda8bb.chunk.js.LICENSE": "/vending-machine-react/static/js/2.46eda8bb.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.949caf58.js",
-    "static/js/2.684b93a8.chunk.js",
-    "static/css/main.148a1c80.chunk.css",
-    "static/js/main.c2685e49.chunk.js"
+    "static/js/2.46eda8bb.chunk.js",
+    "static/css/main.216d45f9.chunk.css",
+    "static/js/main.e61c2597.chunk.js"
   ]
 }
