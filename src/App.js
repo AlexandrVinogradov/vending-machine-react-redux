@@ -8,11 +8,11 @@ import ResultForm from './componets/ResultForm/ResultForm';
 class App extends React.Component {
   state = {
     products: [
-      { name: 'Oreo', price: 80, desc: 'Cookie', id: 1 },
-      { name: 'Milka', price: 140, desc: 'Chocolate', id: 2 },
-      { name: 'M&M', price: 200, desc: 'Candy', id: 3 },
-      { name: 'Twix', price: 91, desc: 'Choco bar', id: 4 },
-      { name: 'Mentos', price: 50, desc: 'Chewing pills', id: 5 },
+      { name: 'Oreo',         price: 80,  desc: 'Cookie', id: 1 },
+      { name: 'Milka',        price: 140, desc: 'Chocolate', id: 2 },
+      { name: 'M&M',          price: 200, desc: 'Candy', id: 3 },
+      { name: 'Twix',         price: 91,  desc: 'Choco bar', id: 4 },
+      { name: 'Mentos',       price: 50,  desc: 'Chewing pills', id: 5 },
       { name: 'Mountain dew', price: 170, desc: 'Cold drink', id: 6 },
     ],
     change: 0,
@@ -27,7 +27,11 @@ class App extends React.Component {
     isError: false,
     coins: []
   }
-
+  constructor(props) {
+    super(props);
+    this.productInputValueRef = React.createRef();
+    this.balanceInputValueRef = React.createRef();
+  }
   // ========= Insert Bancnote Form ================ 
   handleBalanceEnterClick = (e) => {
     e.preventDefault();
@@ -92,12 +96,26 @@ class App extends React.Component {
   }
   // ========= Result Form ========= 
   takeProduct = () => {
-    window.location.reload();
+    this.productInputValueRef.current.value = ''
+    this.balanceInputValueRef.current.value = ''
+    this.setState({
+      change: 0,
+      balance: 0,
+      selectedProduct: 0,
+      productInputValue: 0,
+      balanceInputValue: 0,
+      isRichest: false,
+      errorMessageUnknowBancnote: '',
+      errorMessageIncorrect: '',
+      isError: false,
+      coins: []
+    })
+
   }
 
   render() {
     const foundSelectedProduct = this.state.products.find(p => p.id === this.state.selectedProduct)
-    
+
     return <div className='interface'>
       <ProductList products={this.state.products} />
 
@@ -107,13 +125,15 @@ class App extends React.Component {
           balance={this.state.balance}
           balanceInputValue={this.balanceInputValue}
           isRichest={this.state.isRichest}
-          selectedProduct={this.state.selectedProduct} />
+          selectedProduct={this.state.selectedProduct}
+          balanceInputValueRef={this.balanceInputValueRef} />
 
         <ChooseProductForm handleProductEnterClick={this.handleProductEnterClick}
           errorMessageIncorrect={this.state.errorMessageIncorrect}
           balance={this.state.balance}
           selectedProduct={this.state.selectedProduct}
-          productInputValue={this.productInputValue} />
+          productInputValue={this.productInputValue}
+          productInputValueRef={this.productInputValueRef} />
 
         <ResultForm selectedProduct={this.state.selectedProduct}
           change={this.state.change}

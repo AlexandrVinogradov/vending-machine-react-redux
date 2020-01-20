@@ -10,7 +10,7 @@ const ChooseProductForm = props => {
               props.selectedProduct ? 'Success' : 'Choose product'}
         </span>
       </div>
-      <input onInput={props.productInputValue} disabled={props.selectedProduct || props.balance === 0} />
+      <input onInput={props.productInputValue} ref={props.productInputValueRef} disabled={props.selectedProduct || props.balance === 0} />
     </form>
   </>
 }

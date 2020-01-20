@@ -12,7 +12,7 @@ const InsertBancnoteForm = props => {
         </span>
       </div>
 
-      <input onInput={props.balanceInputValue} disabled={props.isRichest || props.selectedProduct} />
+      <input ref={props.balanceInputValueRef} onInput={props.balanceInputValue} disabled={props.isRichest || props.selectedProduct} />
 
       <p className='form__desc'>
         Available banknotes: 50, 100,

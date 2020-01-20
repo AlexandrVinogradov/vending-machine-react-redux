@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CoinChange = props => {
-  console.log(props);
   return<>
     {props.coins10 ? <div>10 R: {props.coins10} coins</div> : null}
     {props.coins5 ? <div>5 R: {props.coins5} coins</div> : null}
