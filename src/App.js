@@ -70,14 +70,16 @@ class App extends React.Component {
       i++
     }
 
-    if (this.state.products.some(p => p.id === this.state.productInputValue) && this.state.balance >= this.state.products.find(p => p.id === this.state.productInputValue).price) {
-      this.setState({
+    if (this.state.products.some(p => p.id === this.state.productInputValue) && this.state.balance >= 
+       this.state.products.find(p => p.id === this.state.productInputValue).price) {
+       this.setState({
         selectedProduct: parseInt(this.state.productInputValue),
         errorMessageIncorrect: '',
         coins: localCoins,
         change: parseInt(this.state.balance) - this.state.products.find(p => p.id === this.state.productInputValue).price
       })
-    } else if (this.state.products.some(p => p.id === this.state.productInputValue) && this.state.balance < this.state.products.find(p => p.id === this.state.productInputValue).price) {
+    } else if (this.state.products.some(p => p.id === this.state.productInputValue) && this.state.balance <
+      this.state.products.find(p => p.id === this.state.productInputValue).price) {
       this.setState({
         isError: true,
         errorMessageIncorrect: 'Not enought money'

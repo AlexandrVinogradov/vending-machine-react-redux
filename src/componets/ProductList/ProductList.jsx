@@ -14,7 +14,8 @@ const NewProductElement = props => {
   </>
 }
 const ProductList = (props) => {
-  const newProductElement = props.products.map(p => <NewProductElement id={p.id} key={p.id} name={p.name} price={p.price} desc={p.desc} />)
+  const newProductElement = props.products.map(p => 
+  <NewProductElement id={p.id} key={p.id} name={p.name} price={p.price} desc={p.desc} />)
 
   return <div className='interface'>
     <div className='inteface__goods'>
