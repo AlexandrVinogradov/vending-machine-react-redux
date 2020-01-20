@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../App.css';
+// import '../../App.css';
 
 
 const NewProductElement = props => {
@@ -16,7 +16,6 @@ const NewProductElement = props => {
   </>
 }
 const ProductList = (props) => {
-  console.log(props.products);
   const newProductElement = props.products.map(p => <NewProductElement id={p.id} key={p.id} name={p.name} price={p.price} desc={p.desc} />)
 
   return <div className='interface'>
