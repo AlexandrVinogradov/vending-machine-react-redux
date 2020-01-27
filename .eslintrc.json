@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "react-app", 
+    // "airbnb", 
+    "prettier"
+  ],
+  "plugins": [
+    "prettier",
+    "react"
+  ],
+  "rules": {
+    "jsx-quotes": [1, "prefer-double"],
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "no-debugger": "warn"
+  }
+}

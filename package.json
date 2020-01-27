@@ -2,11 +2,12 @@
   "name": "vending-machine",
   "version": "0.1.0",
   "private": true,
-  "homepage":  "https://alexandrvinogradov.github.io/vending-machine-react",
+  "homepage": "https://alexandrvinogradov.github.io/vending-machine-react",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "express": "^4.17.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0"
@@ -35,6 +36,28 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.2.0"
+    "eslint": "^6.8.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "gh-pages": "^2.2.0",
+    "prettier": "^1.19.1"
+  },
+  "description": "vending-machine built with React. See the [Demo](https://alexandrvinogradov.github.io/vending-machine-react/)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexandrVinogradov/vending-machine-react-redux.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexandrVinogradov/vending-machine-react-redux/issues"
   }
 }
