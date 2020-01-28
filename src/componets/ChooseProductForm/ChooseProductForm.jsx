@@ -5,13 +5,8 @@ const ChooseProductForm = props => {
     <form onSubmit={props.handleProductEnterClick}>
       <div className="dialog-board">
         <span>
-          {props.errorMessageIncorrect
-            ? props.errorMessageIncorrect
-            : props.balance === 0
-            ? '>'
-            : props.selectedProduct
-            ? 'Success'
-            : 'Choose product'}
+          {props.errorMessageIncorrect ||
+            (props.balance === 0 ? '>' : props.selectedProduct ? 'Success' : 'Choose product')}
         </span>
       </div>
       <input
