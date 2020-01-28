@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.css'
 import ProductList from './componets/ProductList/ProductList'
-import InsertBancnoteForm from './componets/InsertBancnoteForm/InsertBancnoteForm'
+import InsertBanknoteForm from './componets/InsertBanknoteForm/InsertBanknoteForm'
 import ChooseProductForm from './componets/ChooseProductForm/ChooseProductForm'
 import ResultForm from './componets/ResultForm/ResultForm'
 
@@ -22,7 +22,7 @@ class App extends React.Component {
     balanceInputValue: 0,
     isRichest: false,
     legalPayload: [50, 100, 200, 500, 1000],
-    errorMessageUnknowBancnote: '',
+    errorMessageUnknowBanknote: '',
     errorMessageIncorrect: '',
     isError: false,
     coins: [],
@@ -32,7 +32,7 @@ class App extends React.Component {
     this.productInputValueRef = React.createRef()
     this.balanceInputValueRef = React.createRef()
   }
-  // ========= Insert Bancnote Form ================
+  // ========= Insert Banknote Form ================
   handleBalanceEnterClick = e => {
     e.preventDefault()
     if (this.state.legalPayload.includes(parseInt(this.state.balanceInputValue))) {
@@ -41,12 +41,12 @@ class App extends React.Component {
         isRichest: this.state.products.every(
           p => p.price <= parseInt(this.state.balance) + parseInt(this.state.balanceInputValue)
         ),
-        errorMessageUnknowBancnote: '',
+        errorMessageUnknowBanknote: '',
       })
     } else {
       this.setState({
         isError: true,
-        errorMessageUnknowBancnote: 'Unknow bancnote',
+        errorMessageUnknowBanknote: 'Unknow Banknote',
       })
     }
   }
@@ -115,7 +115,7 @@ class App extends React.Component {
       productInputValue: 0,
       balanceInputValue: 0,
       isRichest: false,
-      errorMessageUnknowBancnote: '',
+      errorMessageUnknowBanknote: '',
       errorMessageIncorrect: '',
       isError: false,
       coins: [],
@@ -130,9 +130,9 @@ class App extends React.Component {
         <ProductList products={this.state.products} />
 
         <div className="interface__control-panel">
-          <InsertBancnoteForm
+          <InsertBanknoteForm
             handleBalanceEnterClick={this.handleBalanceEnterClick}
-            errorMessageUnknowBancnote={this.state.errorMessageUnknowBancnote}
+            errorMessageUnknowBanknote={this.state.errorMessageUnknowBanknote}
             balance={this.state.balance}
             balanceInputValue={this.balanceInputValue}
             isRichest={this.state.isRichest}
