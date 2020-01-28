@@ -18,13 +18,6 @@ class App extends React.Component {
     change: 0,
     balance: 0,
     selectedProduct: 0,
-    productInputValue: 0,
-    balanceInputValue: 0,
-    isRichest: false,
-    legalPayload: [50, 100, 200, 500, 1000],
-    errorMessageUnknowBanknote: '',
-    errorMessageIncorrect: '',
-    isError: false,
     coins: [],
   }
   constructor(props) {
@@ -33,75 +26,17 @@ class App extends React.Component {
     this.balanceInputValueRef = React.createRef()
   }
   // ========= Insert Banknote Form ================
-  handleBalanceEnterClick = e => {
-    e.preventDefault()
-    if (this.state.legalPayload.includes(parseInt(this.state.balanceInputValue))) {
-      this.setState({
-        balance: parseInt(this.state.balanceInputValue) + parseInt(this.state.balance),
-        isRichest: this.state.products.every(
-          p => p.price <= parseInt(this.state.balance) + parseInt(this.state.balanceInputValue)
-        ),
-        errorMessageUnknowBanknote: '',
-      })
-    } else {
-      this.setState({
-        isError: true,
-        errorMessageUnknowBanknote: 'Unknow Banknote',
-      })
-    }
-  }
-  balanceInputValue = e => {
+  setValuesOfInsertBanknoteForm = balance => {
     this.setState({
-      balanceInputValue: parseInt(e.currentTarget.value),
+      balance: balance,
     })
   }
   // ========= Choose Product Form =========
-  handleProductEnterClick = e => {
-    e.preventDefault()
-
-    let newChange =
-      parseInt(this.state.balance) - this.state.products.find(p => p.id === this.state.productInputValue).price
-
-    let localCoins = []
-    let bills = [10, 5, 2, 1]
-    let p = 0
-    let i = 0
-    while (p < newChange) {
-      let z = Math.floor((newChange - p) / bills[i])
-      localCoins.push({ [bills[i]]: z })
-      p += bills[i] * z
-      i++
-    }
-
-    if (
-      this.state.products.some(p => p.id === this.state.productInputValue) &&
-      this.state.balance >= this.state.products.find(p => p.id === this.state.productInputValue).price
-    ) {
-      this.setState({
-        selectedProduct: parseInt(this.state.productInputValue),
-        errorMessageIncorrect: '',
-        coins: localCoins,
-        change:
-          parseInt(this.state.balance) - this.state.products.find(p => p.id === this.state.productInputValue).price,
-      })
-    } else if (
-      this.state.products.some(p => p.id === this.state.productInputValue) &&
-      this.state.balance < this.state.products.find(p => p.id === this.state.productInputValue).price
-    ) {
-      this.setState({
-        isError: true,
-        errorMessageIncorrect: 'Not enought money',
-      })
-    } else {
-      this.setState({
-        isError: true,
-        errorMessageIncorrect: 'Enter correct number',
-      })
-    }
-  }
-  productInputValue = e => {
+  setValuesOfChooseProductForm = (selectedProduct, coins, change) => {
     this.setState({
-      productInputValue: parseInt(e.currentTarget.value),
+      selectedProduct: selectedProduct,
+      coins: coins,
+      change: change,
     })
   }
   // ========= Result Form =========
@@ -112,12 +47,6 @@ class App extends React.Component {
       change: 0,
       balance: 0,
       selectedProduct: 0,
-      productInputValue: 0,
-      balanceInputValue: 0,
-      isRichest: false,
-      errorMessageUnknowBanknote: '',
-      errorMessageIncorrect: '',
-      isError: false,
       coins: [],
     })
   }
@@ -131,22 +60,18 @@ class App extends React.Component {
 
         <div className="interface__control-panel">
           <InsertBanknoteForm
-            handleBalanceEnterClick={this.handleBalanceEnterClick}
-            errorMessageUnknowBanknote={this.state.errorMessageUnknowBanknote}
-            balance={this.state.balance}
-            balanceInputValue={this.balanceInputValue}
-            isRichest={this.state.isRichest}
             selectedProduct={this.state.selectedProduct}
             balanceInputValueRef={this.balanceInputValueRef}
+            products={this.state.products}
+            setValuesOfInsertBanknoteForm={this.setValuesOfInsertBanknoteForm}
+            balance={this.state.balance}
           />
 
           <ChooseProductForm
-            handleProductEnterClick={this.handleProductEnterClick}
-            errorMessageIncorrect={this.state.errorMessageIncorrect}
             balance={this.state.balance}
-            selectedProduct={this.state.selectedProduct}
-            productInputValue={this.productInputValue}
             productInputValueRef={this.productInputValueRef}
+            products={this.state.products}
+            setValuesOfChooseProductForm={this.setValuesOfChooseProductForm}
           />
 
           <ResultForm
