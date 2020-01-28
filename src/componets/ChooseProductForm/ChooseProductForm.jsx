@@ -1,20 +1,34 @@
 import React from 'react'
 
-const ChooseProductForm = props => {
-  return (
-    <form onSubmit={props.handleProductEnterClick}>
-      <div className="dialog-board">
-        <span>
-          {props.errorMessageIncorrect ||
-            (props.balance === 0 ? '>' : props.selectedProduct ? 'Success' : 'Choose product')}
-        </span>
-      </div>
-      <input
-        onInput={props.productInputValue}
-        ref={props.productInputValueRef}
-        disabled={props.selectedProduct || props.balance === 0}
-      />
-    </form>
-  )
+class ChooseProductForm extends React.Component {
+  render() {
+
+    let dialogBoard 
+
+    if (this.props.errorMessageIncorrect) {
+      dialogBoard = this.props.errorMessageIncorrect
+    } else if (this.props.balance === 0) {
+      dialogBoard = '>'
+    } else if (this.props.selectedProduct) {
+      dialogBoard = 'Success'
+    } else {
+      dialogBoard = 'Choose product'
+    }
+
+    return (
+      <form onSubmit={this.props.handleProductEnterClick}>
+        <div className="dialog-board">
+          <span>
+            {dialogBoard}
+          </span>
+        </div>
+        <input
+          onInput={this.props.productInputValue}
+          ref={this.props.productInputValueRef}
+          disabled={this.props.selectedProduct || this.props.balance === 0}
+        />
+      </form>
+    )
+  }
 }
 export default ChooseProductForm
