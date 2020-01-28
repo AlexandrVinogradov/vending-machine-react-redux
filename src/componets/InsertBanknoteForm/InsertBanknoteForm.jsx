@@ -39,16 +39,22 @@ class InsertBanknoteForm extends React.Component {
   }
 
   render() {
+    let dialogBoard 
+
+    if (this.state.errorMessageUnknowBanknote) {
+      dialogBoard = this.state.errorMessageUnknowBanknote
+    } else if (this.props.balance === 0) {
+      dialogBoard = 'Insert banknotes...'
+    } else if (this.state.isRichest) {
+      dialogBoard = `Inserted money: ${this.state.balance + ' R Enough for any snacks'}`
+    } else {
+      dialogBoard = `Inserted money: ${this.state.balance + ' R'}`
+    }
     return (
       <form onSubmit={this.handleBalanceEnterClick} className="form">
         <div className="dialog-board">
           <span>
-            {this.state.errorMessageUnknowBanknote ||
-              (this.props.balance === 0
-                ? 'Insert banknotes...'
-                : this.state.isRichest
-                ? `Inserted money: ${this.state.balance + ' R Enough for any snacks'}`
-                : `Inserted money: ${this.state.balance + ' R'}`)}
+            {dialogBoard}
           </span>
         </div>
 
