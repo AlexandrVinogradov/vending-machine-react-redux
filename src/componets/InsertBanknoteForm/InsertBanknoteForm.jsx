@@ -50,6 +50,7 @@ class InsertBanknoteForm extends React.Component {
     } else {
       dialogBoard = `Inserted money: ${this.props.balance + ' R'}`
     }
+
     return (
       <form onSubmit={this.handleBalanceEnterClick} className="form">
         <div className="dialog-board">

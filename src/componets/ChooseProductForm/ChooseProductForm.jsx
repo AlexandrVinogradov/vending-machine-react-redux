@@ -1,6 +1,7 @@
 import React from 'react'
 
 class ChooseProductForm extends React.Component {
+
   state = {
     selectedProduct: 0,
     errorMessageIncorrect: '',
@@ -65,18 +66,30 @@ class ChooseProductForm extends React.Component {
   }
 
   render() {
+
+    let dialogBoard 
+
+    if (this.props.errorMessageIncorrect) {
+      dialogBoard = this.props.errorMessageIncorrect
+    } else if (this.props.balance === 0) {
+      dialogBoard = '>'
+    } else if (this.props.selectedProduct) {
+      dialogBoard = 'Success'
+    } else {
+      dialogBoard = 'Choose product'
+    }
+
     return (
-      <form onSubmit={this.handleProductEnterClick}>
+      <form onSubmit={this.props.handleProductEnterClick}>
         <div className="dialog-board">
           <span>
-            {this.state.errorMessageIncorrect ||
-              (this.props.balance === 0 ? '>' : this.state.selectedProduct ? 'Success' : 'Choose product')}
+            {dialogBoard}
           </span>
         </div>
         <input
-          onInput={this.productInputValue}
+          onInput={this.props.productInputValue}
           ref={this.props.productInputValueRef}
-          disabled={this.state.selectedProduct || this.props.balance === 0}
+          disabled={this.props.selectedProduct || this.props.balance === 0}
         />
       </form>
     )
