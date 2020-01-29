@@ -2,11 +2,11 @@ import React from 'react'
 
 class ChooseProductForm extends React.Component {
   state = {
-    selectedProduct: 0, //
+    selectedProduct: 0, 
     errorMessageIncorrect: '',
-    coins: [], //
-    change: 0, //
-    isError: false, //
+    coins: [], 
+    change: 0, 
+    isError: false, 
     productInputValue: 0,
   }
 
