@@ -19,6 +19,7 @@ class App extends React.Component {
     balance: 0,
     selectedProduct: 0,
     coins: [],
+    isRichest: 0,
   }
   constructor(props) {
     super(props)
@@ -26,18 +27,12 @@ class App extends React.Component {
     this.balanceInputValueRef = React.createRef()
   }
   // ========= Insert Banknote Form ================
-  setValuesOfInsertBanknoteForm = balance => {
-    this.setState({
-      balance: balance,
-    })
+  setValuesOfInsertBanknoteForm = (balance, isRichest) => {
+    this.setState({ balance, isRichest })
   }
   // ========= Choose Product Form =========
   setValuesOfChooseProductForm = (selectedProduct, coins, change) => {
-    this.setState({
-      selectedProduct: selectedProduct,
-      coins: coins,
-      change: change,
-    })
+    this.setState({ selectedProduct, coins, change })
   }
   // ========= Result Form =========
   takeProduct = () => {
@@ -48,6 +43,7 @@ class App extends React.Component {
       balance: 0,
       selectedProduct: 0,
       coins: [],
+      isRichest: 0,
     })
   }
 
@@ -65,6 +61,7 @@ class App extends React.Component {
             products={this.state.products}
             setValuesOfInsertBanknoteForm={this.setValuesOfInsertBanknoteForm}
             balance={this.state.balance}
+            isRichest={this.state.isRichest}
           />
 
           <ChooseProductForm
