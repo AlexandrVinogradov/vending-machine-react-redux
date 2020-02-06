@@ -65,6 +65,7 @@ class App extends React.Component {
           />
 
           <ChooseProductForm
+            selectedProduct={this.state.selectedProduct}
             balance={this.state.balance}
             productInputValueRef={this.productInputValueRef}
             products={this.state.products}

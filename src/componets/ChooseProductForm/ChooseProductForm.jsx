@@ -1,7 +1,6 @@
 import React from 'react'
 
 class ChooseProductForm extends React.Component {
-
   state = {
     selectedProduct: 0,
     errorMessageIncorrect: '',
@@ -9,24 +8,11 @@ class ChooseProductForm extends React.Component {
     change: 0,
     isError: false,
     productInputValue: 0,
+    mycoins: [],
   }
 
   handleProductEnterClick = e => {
     e.preventDefault()
-
-    let newChange =
-      parseInt(this.props.balance) - this.props.products.find(p => p.id === this.state.productInputValue).price
-
-    let localCoins = []
-    let bills = [10, 5, 2, 1]
-    let p = 0
-    let i = 0
-    while (p < newChange) {
-      let z = Math.floor((newChange - p) / bills[i])
-      localCoins.push({ [bills[i]]: z })
-      p += bills[i] * z
-      i++
-    }
 
     if (
       this.props.products.some(p => p.id === this.state.productInputValue) &&
@@ -36,9 +22,11 @@ class ChooseProductForm extends React.Component {
         {
           selectedProduct: parseInt(this.state.productInputValue),
           errorMessageIncorrect: '',
-          coins: localCoins,
+          coins: this.state.mycoins,
           change:
             parseInt(this.props.balance) - this.props.products.find(p => p.id === this.state.productInputValue).price,
+          isError: false,
+          productInputValue: 0,
         },
         () => {
           this.props.setValuesOfChooseProductForm(this.state.selectedProduct, this.state.coins, this.state.change)
@@ -60,19 +48,40 @@ class ChooseProductForm extends React.Component {
     }
   }
   productInputValue = e => {
-    this.setState({
-      productInputValue: parseInt(e.currentTarget.value),
-    })
+    this.setState(
+      {
+        productInputValue: parseInt(e.currentTarget.value),
+      },
+      () => {
+        if (this.props.products.some(p => p.id === this.state.productInputValue)) {
+          let newChange =
+            parseInt(this.props.balance) - this.props.products.find(p => p.id === this.state.productInputValue).price
+
+          let localCoins = []
+          let bills = [10, 5, 2, 1]
+          let p = 0
+          let i = 0
+          while (p < newChange) {
+            let z = Math.floor((newChange - p) / bills[i])
+            localCoins.push({ [bills[i]]: z })
+            p += bills[i] * z
+            i++
+          }
+          this.setState({ mycoins: localCoins })
+        }
+      }
+    )
   }
 
   render() {
-
-    let dialogBoard 
+    let dialogBoard
 
     if (this.props.errorMessageIncorrect) {
       dialogBoard = this.props.errorMessageIncorrect
     } else if (this.props.balance === 0) {
       dialogBoard = '>'
+    } else if (this.state.isError) {
+      dialogBoard = this.state.errorMessageIncorrect
     } else if (this.props.selectedProduct) {
       dialogBoard = 'Success'
     } else {
@@ -80,14 +89,12 @@ class ChooseProductForm extends React.Component {
     }
 
     return (
-      <form onSubmit={this.props.handleProductEnterClick}>
+      <form onSubmit={this.handleProductEnterClick}>
         <div className="dialog-board">
-          <span>
-            {dialogBoard}
-          </span>
+          <span>{dialogBoard}</span>
         </div>
         <input
-          onInput={this.props.productInputValue}
+          onInput={this.productInputValue}
           ref={this.props.productInputValueRef}
           disabled={this.props.selectedProduct || this.props.balance === 0}
         />
