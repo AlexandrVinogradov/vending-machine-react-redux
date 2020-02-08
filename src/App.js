@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './App.scss'
 import ProductList from './componets/ProductList/ProductList'
 import InsertBanknoteForm from './componets/InsertBanknoteForm/InsertBanknoteForm'
 import ChooseProductForm from './componets/ChooseProductForm/ChooseProductForm'
