@@ -90,7 +90,7 @@ class ChooseProductForm extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleProductEnterClick}>
+      <form onSubmit={this.handleProductEnterClick} className={s.form}>
         <div className={s.dialogBoard}>
           <span>{dialogBoard}</span>
         </div>

@@ -53,20 +53,20 @@ class InsertBanknoteForm extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleBalanceEnterClick} className="form">
+      <form onSubmit={this.handleBalanceEnterClick} className={s.form}>
         <div className={s.dialogBoard}>
           <span>{dialogBoard}</span>
         </div>
+
+        <p className={s.form__desc}>
+          Available banknotes: 50, 100, 200, 500 or 1000 R. The machine gives change in 1, 2, 5 and 10 R coins.
+        </p>
 
         <input
           ref={this.props.balanceInputValueRef}
           onInput={this.balanceInputValue}
           disabled={this.props.isRichest || this.props.selectedProduct}
         />
-
-        <p className={s.form__desc}>
-          Available banknotes: 50, 100, 200, 500 or 1000 R. The machine gives change in 1, 2, 5 and 10 R coins.
-        </p>
       </form>
     )
   }

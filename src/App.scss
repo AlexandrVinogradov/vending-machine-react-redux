@@ -2,11 +2,8 @@ html {
   background: linear-gradient(0deg, #1A1A1A, #1A1A1A);
 }
 body {
-  // font-family: 'Roboto+mono', sans-serif;
-
   font-family: PixelMiner;
   font-style: normal;
-  // font-weight: 500;
   font-size: 16px;
   line-height: 21px;
 }
@@ -24,69 +21,33 @@ ul, li, p {
 a {
   text-decoration: none;
 }
-
 @font-face {
   font-family: "PixelMiner";
   src: url("./fonts/pixelMiner/PixelMiners-KKal.otf") format("truetype");
- }
+}
+
+
 
 .interface {
   display: flex;
   height: 100vh;
   width: 100vw;
 }
-// .inteface__goods {
-//   background: #9dcfaa;
-//   flex: 1 1 auto;
-// }
 .interface__control-panel {
-  // background: #9dcfaa;
-  padding-right: 150px;
-  min-width: 300px;
+  padding-top: 64px;
+  flex: 0 0 30rem;
+  -webkit-box-flex: 0;
+  // overflow-y: scroll;
 }
-// .product-list {
-//   display: flex;
-//   flex-wrap: wrap;
-// }
 input {
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
+  border: 2px solid #00D400;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 8px #00D400;
   border-radius: 4px;
-  height: 25px;
+  height: 55px;
+  color: #00D400;
+  font-family: PixelMiner;
   padding: 10px;
-  font-weight: bold;
 }
 
-// .product {
-//   flex-direction: column;
-//   display: flex;
-//   font-weight: bold;
-//   padding: 13px;
-//   background: white;
-//   margin-bottom: 10px;
-//   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-//   border-radius: 4px;
-//   min-width: 110px;
-// }
-// .dialog-board {
-//   background: white;
-//   font-weight: bold;
-//   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-//   border-radius: 4px;
-//   margin-bottom: 10px;
-//   margin-top: 25px;
-//   padding: 20px;
-//   min-height: 42px;
-// }
-// .form__desc {
-//   width: 200px;
-// }
-// .conclusion {
-//   display: flex;
-//   justify-content: space-between;
-// }
-// .result {
-//   height: 90px;
-//   flex: 1 1 auto;
-//   margin: 10px 0 10px 10px;
-//   justify-content: space-between;
-// }

@@ -1,10 +1,14 @@
 .dialogBoard {
-  background: white;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 33px;
+  color: #00D400;
+  background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
+  border: 2px solid #00D400;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 8px #00D400;
   border-radius: 4px;
-  margin-bottom: 10px;
-  margin-top: 25px;
-  padding: 20px;
-  min-height: 42px;
+  margin-bottom: 1rem;
+
+}
+.form {
+  margin-bottom: 4rem;
 }
