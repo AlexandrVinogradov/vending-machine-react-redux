@@ -14,6 +14,7 @@ class App extends React.Component {
       { name: 'Twix', price: 91, desc: 'Choco bar', id: 4 },
       { name: 'Mentos', price: 50, desc: 'Chewing pills', id: 5 },
       { name: 'Mountain dew', price: 170, desc: 'Cold drink', id: 6 },
+      { name: 'Mountain dew', price: 170, desc: 'Cold drink', id: 6 },
     ],
     change: 0,
     balance: 0,

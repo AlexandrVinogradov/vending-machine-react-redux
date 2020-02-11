@@ -6,7 +6,6 @@ const NewProductElement = props => {
     <>
       <li className={s.productList__item}>
         <div className={s.product}>
-
           {/* or doesnt need? */}
           <span className={s.product__name}>{props.name}</span>
           <span className={s.product__desc}>{props.desc}</span>
@@ -23,8 +22,8 @@ const ProductList = props => {
   ))
 
   return (
-    <div className={s.interface}>
-      <div className={s.inteface__goods}>
+    <div className={s.interface__goods}>
+      <div className={s.inteface__goods_area}>
         <ul className={s.productList}>{newProductElement}</ul>
       </div>
     </div>
