@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './InsertBanknoteForm.module.scss'
 
 class InsertBanknoteForm extends React.Component {
   state = {
@@ -53,7 +54,7 @@ class InsertBanknoteForm extends React.Component {
 
     return (
       <form onSubmit={this.handleBalanceEnterClick} className="form">
-        <div className="dialog-board">
+        <div className={s.dialogBoard}>
           <span>{dialogBoard}</span>
         </div>
 
@@ -63,7 +64,7 @@ class InsertBanknoteForm extends React.Component {
           disabled={this.props.isRichest || this.props.selectedProduct}
         />
 
-        <p className="form__desc">
+        <p className={s.form__desc}>
           Available banknotes: 50, 100, 200, 500 or 1000 R. The machine gives change in 1, 2, 5 and 10 R coins.
         </p>
       </form>

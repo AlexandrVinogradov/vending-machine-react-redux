@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './ChooseProductForm.module.scss'
 
 class ChooseProductForm extends React.Component {
   state = {
@@ -90,7 +91,7 @@ class ChooseProductForm extends React.Component {
 
     return (
       <form onSubmit={this.handleProductEnterClick}>
-        <div className="dialog-board">
+        <div className={s.dialogBoard}>
           <span>{dialogBoard}</span>
         </div>
         <input

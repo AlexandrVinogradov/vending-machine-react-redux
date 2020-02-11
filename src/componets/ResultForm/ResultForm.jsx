@@ -1,4 +1,5 @@
 import React from 'react'
+import s from './ResultForm.module.scss'
 
 const CoinChange = props => {
   return (
@@ -17,15 +18,15 @@ const ResultForm = props => {
  
   return (
     <div>
-      <div className="dialog-board">
+      <div className={s.dialogBoard}>
         <span>{props.selectedProduct ? 'Take your product and change' : '>'}</span>
       </div>
-      <div className="conclusion">
-        <div className="product">
+      <div className={s.conclusion}>
+        <div className={s.product}>
           {coinChange}
           {!props.change && props.selectedProduct ? <div>No change</div> : null}
         </div>
-        <div className="product result" onClick={props.takeProduct}>
+        <div className={`${s.product} ${s.result}`} onClick={props.takeProduct}>
           <span>{props.selectedProduct ? props.foundSelectedProduct.name : null}</span>
           <span>{props.selectedProduct ? props.foundSelectedProduct.desc : null}</span>
           <span>{props.selectedProduct ? props.foundSelectedProduct.price : null}</span>

@@ -1,14 +1,17 @@
 import React from 'react'
+import s from './ProductList.module.scss'
 
 const NewProductElement = props => {
   return (
     <>
-      <li className="product-list__item">
-        <div className="product">
-          <span className="product__name">{props.name}</span>
-          <span className="product__desc">{props.desc}</span>
-          <span className="product__prise">{props.price + ' R'}</span>
-          <span className="product__name">{props.id}</span>
+      <li className={s.productList__item}>
+        <div className={s.product}>
+
+          {/* or doesnt need? */}
+          <span className={s.product__name}>{props.name}</span>
+          <span className={s.product__desc}>{props.desc}</span>
+          <span className={s.product__prise}>{props.price + ' R'}</span>
+          <span className={s.product__name}>{props.id}</span>
         </div>
       </li>
     </>
@@ -20,9 +23,9 @@ const ProductList = props => {
   ))
 
   return (
-    <div className="interface">
-      <div className="inteface__goods">
-        <ul className="product-list">{newProductElement}</ul>
+    <div className={s.interface}>
+      <div className={s.inteface__goods}>
+        <ul className={s.productList}>{newProductElement}</ul>
       </div>
     </div>
   )
