@@ -1,5 +1,7 @@
 .dialogBoard {
-  padding: 33px;
+  padding-left: 2rem;
+  align-items: center;
+  display: flex;
   color: #00D400;
   background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
   border: 2px solid #00D400;
@@ -7,6 +9,7 @@
   box-shadow: inset 0px 0px 8px #00D400;
   border-radius: 4px;
   margin-bottom: 1rem;
+  height: 5.25rem;
 
 }
 .form {

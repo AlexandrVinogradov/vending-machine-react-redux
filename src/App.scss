@@ -3,8 +3,9 @@ html {
 }
 body {
   font-family: PixelMiner;
+  word-spacing: 3px;
   font-style: normal;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 21px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -26,18 +27,15 @@ a {
   src: url("./fonts/pixelMiner/PixelMiners-KKal.otf") format("truetype");
 }
 
-
-
 .interface {
   display: flex;
   height: 100vh;
-  width: 100vw;
 }
 .interface__control-panel {
-  padding-top: 64px;
-  flex: 0 0 30rem;
+  padding: 4rem 6rem;
+  flex: 0 0 25rem;
   -webkit-box-flex: 0;
-  // overflow-y: scroll;
+  overflow-y: scroll;
 }
 input {
   background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
@@ -48,6 +46,6 @@ input {
   height: 55px;
   color: #00D400;
   font-family: PixelMiner;
-  padding: 10px;
+  padding: 1rem;
 }
 

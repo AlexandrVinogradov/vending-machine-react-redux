@@ -1,8 +1,8 @@
 .dialogBoard {
   align-items: center;
   display: flex;
-  min-height: 89px;
-  padding-left: 33px;
+  height: 5.25rem;
+  padding-left: 2rem;
   color: #00D400;
   background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
   border: 2px solid #00D400;
@@ -14,8 +14,10 @@
 .conclusion {
   display: flex;
 }
+
+
 .product {
-  padding: 20px;
+  padding: 1rem 12px 0 12px;
   color: #00D400;
   background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
   border: 2px solid #00D400;
@@ -23,21 +25,20 @@
   box-shadow: inset 0px 0px 8px #00D400;
   border-radius: 4px;
 
-  min-width: 170px;
-  min-height: 227px;
 
+  min-height: 13rem;
 
 
 
   flex-direction: column;
   display: flex;
 
+  flex: 0 0 calc(47% - 1rem);
 
-  padding: 24px;
-  margin-bottom: 10px;
 }
 .result {
+  padding: 1rem;
   margin-left: 1rem;
-  flex: 0 0 calc(62% - 2px);
-  min-width: 227px;
+  flex: 0 0 53%;
+
 }

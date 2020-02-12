@@ -1,12 +1,17 @@
-.dialogBoard {  
-  padding: 33px;
-  text-align: center;
+.dialogBoard span{  
+  padding: 0 3rem 0 3rem;
+  align-items: center;
+  display: flex;
+  // text-align: center;
+  justify-content: center;
   color: #00D400;
   background: radial-gradient(50% 50% at 50% 50%, #153817 0%, #0A160D 100%);
   border: 2px solid #00D400;
   box-sizing: border-box;
   box-shadow: inset 0px 0px 8px #00D400;
   border-radius: 4px;
+
+  height: 5.25rem;
 }
 .form__desc {
   margin: 2rem 0 2rem 0;
