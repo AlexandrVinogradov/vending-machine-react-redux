@@ -2,4 +2,5 @@ vending-machine built with React. See the [Demo](https://alexandrvinogradov.gith
 
 Setup: `yarn && yarn start`
 
-![Screenshot_4](https://user-images.githubusercontent.com/52967962/72824473-5c4c2600-3c86-11ea-90aa-6bf4690b188c.jpg)
+![Screenshot_7](https://user-images.githubusercontent.com/52967962/74346243-54346180-4dc0-11ea-934b-49072fa7446b.jpg)
+
