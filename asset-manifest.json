@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/vending-machine-react/static/css/main.6e48caf7.chunk.css",
+    "main.css": "/vending-machine-react/static/css/main.00c32505.chunk.css",
     "main.js": "/vending-machine-react/static/js/main.799f1077.chunk.js",
     "main.js.map": "/vending-machine-react/static/js/main.799f1077.chunk.js.map",
     "runtime-main.js": "/vending-machine-react/static/js/runtime-main.949caf58.js",
@@ -8,16 +8,16 @@
     "static/js/2.5cea11cb.chunk.js": "/vending-machine-react/static/js/2.5cea11cb.chunk.js",
     "static/js/2.5cea11cb.chunk.js.map": "/vending-machine-react/static/js/2.5cea11cb.chunk.js.map",
     "index.html": "/vending-machine-react/index.html",
-    "precache-manifest.0bb47775228f645ec951ff5fabc10223.js": "/vending-machine-react/precache-manifest.0bb47775228f645ec951ff5fabc10223.js",
+    "precache-manifest.69f1151f8de1a16eb663d63b8387f4a0.js": "/vending-machine-react/precache-manifest.69f1151f8de1a16eb663d63b8387f4a0.js",
     "service-worker.js": "/vending-machine-react/service-worker.js",
-    "static/css/main.6e48caf7.chunk.css.map": "/vending-machine-react/static/css/main.6e48caf7.chunk.css.map",
+    "static/css/main.00c32505.chunk.css.map": "/vending-machine-react/static/css/main.00c32505.chunk.css.map",
     "static/js/2.5cea11cb.chunk.js.LICENSE": "/vending-machine-react/static/js/2.5cea11cb.chunk.js.LICENSE",
     "static/media/App.scss": "/vending-machine-react/static/media/PixelMiners-KKal.8e6ab260.otf"
   },
   "entrypoints": [
     "static/js/runtime-main.949caf58.js",
     "static/js/2.5cea11cb.chunk.js",
-    "static/css/main.6e48caf7.chunk.css",
+    "static/css/main.00c32505.chunk.css",
     "static/js/main.799f1077.chunk.js"
   ]
 }
