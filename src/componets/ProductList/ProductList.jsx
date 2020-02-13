@@ -9,8 +9,10 @@ const NewProductElement = props => {
           {/* or doesnt need? */}
           <span className={s.product__name}>{props.name}</span>
           <span className={s.product__desc}>{props.desc}</span>
-          <span className={s.product__prise}>{props.price + ' R'}</span>
-          <span className={s.product__name}>{props.id}</span>
+          <div className={s.product__info}>
+            <span className={s.product__info_price}>{props.price + ' R'}</span>
+            <span className={s.product__info_name}>{props.id}</span>
+          </div>
         </div>
       </li>
     </>

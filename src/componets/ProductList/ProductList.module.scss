@@ -31,9 +31,17 @@
   display: -webkit-flex;
   font-weight: bold;
   padding: 13px;
-  background: black;
-  color: white;
+  background: #1A1A1A;
+  color: #00D400;
   margin-bottom: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 8px rgba(0, 212, 0, 0.637);
   border-radius: 4px;
+}
+.product__desc {
+  padding-top: 12px;
+}
+.product__info {
+  display: flex;
+ justify-content: space-between; 
+ padding-top: 12px;
 }
