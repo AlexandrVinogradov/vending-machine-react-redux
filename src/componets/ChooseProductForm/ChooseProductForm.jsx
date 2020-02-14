@@ -1,89 +1,106 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import s from './ChooseProductForm.module.scss'
 
 class ChooseProductForm extends React.Component {
-  state = {
-    selectedProduct: 0,
-    errorMessageIncorrect: '',
-    coins: [],
-    change: 0,
-    isError: false,
-    productInputValue: 0,
-    mycoins: [],
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedProduct: 0,
+      errorMessage: '',
+      coins: [],
+      change: 0,
+      isError: false,
+      productInputValue: 0,
+      mycoins: [],
+    }
   }
 
   handleProductEnterClick = e => {
     e.preventDefault()
 
+    const { products, balance, setValuesOfChooseProductForm } = this.props
+    const { productInputValue, mycoins } = this.state
+
     if (
-      this.props.products.some(p => p.id === this.state.productInputValue) &&
-      this.props.balance >= this.props.products.find(p => p.id === this.state.productInputValue).price
+      products.some(p => p.id === productInputValue) &&
+      balance >= products.find(p => p.id === productInputValue).price
     ) {
       this.setState(
         {
-          selectedProduct: parseInt(this.state.productInputValue),
-          errorMessageIncorrect: '',
-          coins: this.state.mycoins,
-          change:
-            parseInt(this.props.balance) - this.props.products.find(p => p.id === this.state.productInputValue).price,
+          selectedProduct: parseInt(productInputValue, 10),
+          errorMessage: '',
+          coins: mycoins,
+          change: parseInt(balance, 10) - products.find(p => p.id === productInputValue).price,
           isError: false,
           productInputValue: 0,
         },
         () => {
-          this.props.setValuesOfChooseProductForm(this.state.selectedProduct, this.state.coins, this.state.change)
+          const { selectedProduct, coins, change } = this.state
+          setValuesOfChooseProductForm(selectedProduct, coins, change)
         }
       )
     } else if (
-      this.props.products.some(p => p.id === this.state.productInputValue) &&
-      this.props.balance < this.props.products.find(p => p.id === this.state.productInputValue).price
+      products.some(p => p.id === productInputValue) &&
+      balance < products.find(p => p.id === productInputValue).price
     ) {
       this.setState({
         isError: true,
-        errorMessageIncorrect: 'Not enought money',
+        errorMessage: 'Not enought money',
       })
     } else {
       this.setState({
         isError: true,
-        errorMessageIncorrect: 'Enter correct number',
+        errorMessage: 'Enter correct number',
       })
     }
   }
+
+  changeCounter = () => {
+    const { productInputValue } = this.state
+    const { products, balance } = this.props
+
+    if (products.some(p => p.id === productInputValue)) {
+      const newChange = parseInt(balance, 10) - products.find(p => p.id === productInputValue).price
+      const localCoins = []
+      const bills = [10, 5, 2, 1]
+
+      let p = 0
+      let i = 0
+      while (p < newChange) {
+        const z = Math.floor((newChange - p) / bills[i])
+        localCoins.push({ [bills[i]]: z })
+        p += bills[i] * z
+        i += 1
+      }
+      this.setState({ mycoins: localCoins })
+    }
+  }
+
   productInputValue = e => {
     this.setState(
       {
-        productInputValue: parseInt(e.currentTarget.value),
+        productInputValue: parseInt(e.currentTarget.value, 10),
       },
       () => {
-        if (this.props.products.some(p => p.id === this.state.productInputValue)) {
-          let newChange =
-            parseInt(this.props.balance) - this.props.products.find(p => p.id === this.state.productInputValue).price
-
-          let localCoins = []
-          let bills = [10, 5, 2, 1]
-          let p = 0
-          let i = 0
-          while (p < newChange) {
-            let z = Math.floor((newChange - p) / bills[i])
-            localCoins.push({ [bills[i]]: z })
-            p += bills[i] * z
-            i++
-          }
-          this.setState({ mycoins: localCoins })
-        }
+        this.changeCounter()
       }
     )
   }
 
   render() {
+    const { errorMessageIncorrect, balance, selectedProduct, productInputValueRef } = this.props
+    const { errorMessage, isError } = this.state
+
     let dialogBoard
 
-    if (this.props.errorMessageIncorrect) {
-      dialogBoard = this.props.errorMessageIncorrect
-    } else if (this.props.balance === 0) {
+    if (errorMessageIncorrect) {
+      dialogBoard = errorMessageIncorrect
+    } else if (balance === 0) {
       dialogBoard = '>'
-    } else if (this.state.isError) {
-      dialogBoard = this.state.errorMessageIncorrect
-    } else if (this.props.selectedProduct) {
+    } else if (isError) {
+      dialogBoard = errorMessage
+    } else if (selectedProduct) {
       dialogBoard = 'Success'
     } else {
       dialogBoard = 'Choose product'
@@ -96,11 +113,28 @@ class ChooseProductForm extends React.Component {
         </div>
         <input
           onInput={this.productInputValue}
-          ref={this.props.productInputValueRef}
-          disabled={this.props.selectedProduct || this.props.balance === 0}
+          ref={productInputValueRef}
+          disabled={selectedProduct || balance === 0}
         />
       </form>
     )
   }
 }
+
+ChooseProductForm.propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      desc: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  balance: PropTypes.number.isRequired,
+  setValuesOfChooseProductForm: PropTypes.number.isRequired,
+  errorMessageIncorrect: PropTypes.string.isRequired,
+  productInputValueRef: PropTypes.string.isRequired,
+  selectedProduct: PropTypes.number.isRequired,
+}
+
 export default ChooseProductForm

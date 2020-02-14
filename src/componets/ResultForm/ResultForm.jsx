@@ -15,7 +15,7 @@ const ResultForm = props => {
   const coinChange = props.coins.map(c => (
     <CoinChange key={c.index} coins10={c[10]} coins5={c[5]} coins2={c[2]} coins1={c[1]} />
   ))
- 
+
   return (
     <div>
       <div className={s.dialogBoard}>

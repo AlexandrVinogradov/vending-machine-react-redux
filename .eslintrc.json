@@ -1,17 +1,25 @@
 {
-  "extends": [
-    "react-app", 
-    // "airbnb", 
-    "prettier"
-  ],
-  "plugins": [
-    "prettier",
-    "react"
-  ],
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
+  "parser": "babel-eslint",
   "rules": {
+
     // "jsx-quotes": [1, "prefer-double"],
     // "no-unused-vars": "warn",
     // "no-console": "warn",
     // "no-debugger": "warn"
+
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true,
+    "Headers": true,
+    "Request": true,
+    "fetch": true
   }
 }
