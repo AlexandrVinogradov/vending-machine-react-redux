@@ -3,12 +3,12 @@
   "plugins": ["prettier"],
   "parser": "babel-eslint",
   "rules": {
-
-    // "jsx-quotes": [1, "prefer-double"],
-    // "no-unused-vars": "warn",
-    // "no-console": "warn",
-    // "no-debugger": "warn"
-
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ]
   },
   "globals": {
     "window": true,

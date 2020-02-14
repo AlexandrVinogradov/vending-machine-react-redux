@@ -1,39 +1,64 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import s from './ResultForm.module.scss'
 
 const CoinChange = props => {
+  const { coins1, coins2, coins5, coins10 } = props
+
   return (
     <>
-      {props.coins10 ? <div>10 R: {props.coins10} coins</div> : null}
-      {props.coins5 ? <div>5 R: {props.coins5} coins</div> : null}
-      {props.coins2 ? <div>2 R: {props.coins2} coins</div> : null}
-      {props.coins1 ? <div>1 R: {props.coins1} coins</div> : null}
+      {coins10 ? <div>10 R: {coins10} coins</div> : null}
+      {coins5 ? <div>5 R: {coins5} coins</div> : null}
+      {coins2 ? <div>2 R: {coins2} coins</div> : null}
+      {coins1 ? <div>1 R: {coins1} coins</div> : null}
     </>
   )
 }
 const ResultForm = props => {
-  const coinChange = props.coins.map(c => (
+  const { coins, selectedProduct, foundSelectedProduct, change, takeProduct } = props
+
+  const coinChange = coins.map(c => (
     <CoinChange key={c.index} coins10={c[10]} coins5={c[5]} coins2={c[2]} coins1={c[1]} />
   ))
 
   return (
     <div>
       <div className={s.dialogBoard}>
-        <span>{props.selectedProduct ? 'Take your product and change' : '>'}</span>
+        <span>{selectedProduct ? 'Take your product and change' : '>'}</span>
       </div>
       <div className={s.conclusion}>
         <div className={s.product}>
           {coinChange}
-          {!props.change && props.selectedProduct ? <div>No change</div> : null}
+          {!change && selectedProduct ? <div>No change</div> : null}
         </div>
-        <div className={`${s.product} ${s.result}`} onClick={props.takeProduct}>
-          <span>{props.selectedProduct ? props.foundSelectedProduct.name : null}</span>
-          <span>{props.selectedProduct ? props.foundSelectedProduct.desc : null}</span>
-          <span>{props.selectedProduct ? props.foundSelectedProduct.price : null}</span>
-          <span>{props.selectedProduct ? props.foundSelectedProduct.id : null}</span>
+        <div
+          role="button"
+          onKeyDown={takeProduct}
+          tabIndex={0}
+          className={`${s.product} ${s.result}`}
+          onClick={takeProduct}
+        >
+          <span>{selectedProduct ? foundSelectedProduct.name : null}</span>
+          <span>{selectedProduct ? foundSelectedProduct.desc : null}</span>
+          <span>{selectedProduct ? foundSelectedProduct.price : null}</span>
+          <span>{selectedProduct ? foundSelectedProduct.id : null}</span>
         </div>
       </div>
     </div>
   )
+}
+
+CoinChange.propTypes = {
+  coins1: PropTypes.number.isRequired,
+  coins2: PropTypes.number.isRequired,
+  coins5: PropTypes.number.isRequired,
+  coins10: PropTypes.number.isRequired,
+}
+ResultForm.propTypes = {
+  selectedProduct: PropTypes.number.isRequired,
+  takeProduct: PropTypes.func.isRequired,
+  coins: PropTypes.arrayOf(PropTypes.number).isRequired,
+  foundSelectedProduct: PropTypes.number.isRequired,
+  change: PropTypes.number.isRequired,
 }
 export default ResultForm

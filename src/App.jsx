@@ -53,7 +53,6 @@ class App extends React.Component {
   }
 
   render() {
-
     const { products, selectedProduct, balance, isRichest, change, coins } = this.state
     const foundSelectedProduct = products.find(p => p.id === selectedProduct)
 

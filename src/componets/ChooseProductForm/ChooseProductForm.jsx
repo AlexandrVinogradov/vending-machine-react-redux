@@ -131,7 +131,7 @@ ChooseProductForm.propTypes = {
     })
   ).isRequired,
   balance: PropTypes.number.isRequired,
-  setValuesOfChooseProductForm: PropTypes.number.isRequired,
+  setValuesOfChooseProductForm: PropTypes.func.isRequired,
   errorMessageIncorrect: PropTypes.string.isRequired,
   productInputValueRef: PropTypes.string.isRequired,
   selectedProduct: PropTypes.number.isRequired,
