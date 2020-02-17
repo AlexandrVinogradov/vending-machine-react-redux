@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import s from './ResultForm.module.scss'
 
 const CoinChange = props => {
+
   const { coins1, coins2, coins5, coins10 } = props
 
   return (
@@ -47,18 +48,26 @@ const ResultForm = props => {
     </div>
   )
 }
-
+ResultForm.defaultProps = {
+  foundSelectedProduct: 0
+}
+CoinChange.defaultProps = {
+  coins1: null,
+  coins2: null,
+  coins5: null,
+  coins10: null,
+}
 CoinChange.propTypes = {
-  coins1: PropTypes.number.isRequired,
-  coins2: PropTypes.number.isRequired,
-  coins5: PropTypes.number.isRequired,
-  coins10: PropTypes.number.isRequired,
+  coins1: PropTypes.number,
+  coins2: PropTypes.number,
+  coins5: PropTypes.number,
+  coins10: PropTypes.number,
 }
 ResultForm.propTypes = {
   selectedProduct: PropTypes.number.isRequired,
   takeProduct: PropTypes.func.isRequired,
   coins: PropTypes.arrayOf(PropTypes.number).isRequired,
-  foundSelectedProduct: PropTypes.number.isRequired,
+  foundSelectedProduct: PropTypes.number,
   change: PropTypes.number.isRequired,
 }
 export default ResultForm

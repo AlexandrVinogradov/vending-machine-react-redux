@@ -14,8 +14,8 @@ class InsertBanknoteForm extends React.Component {
   }
 
   handleBalanceEnterClick = e => {
-    const { balance, products, setValuesOfInsertBanknoteForm } = this.props
-    const { legalPayload, balanceInputValue, isRichest } = this.state
+    const { balance, products, setValuesOfInsertBanknoteForm, isRichest } = this.props
+    const { legalPayload, balanceInputValue } = this.state
 
     e.preventDefault()
     if (legalPayload.includes(parseInt(balanceInputValue, 10))) {
@@ -45,7 +45,7 @@ class InsertBanknoteForm extends React.Component {
 
   render() {
     const { errorMessageUnknowBanknote, localIsRichest } = this.state
-    const { balance, selectedProduct, balanceInputValueRef, isRichest } = this.props
+    const { balance, selectedProduct, balanceInputValueRef } = this.props
     let dialogBoard
 
     if (errorMessageUnknowBanknote) {
@@ -68,7 +68,7 @@ class InsertBanknoteForm extends React.Component {
           Available banknotes: 50, 100, 200, 500 or 1000 R. The machine gives change in 1, 2, 5 and 10 R coins.
         </p>
 
-        <input ref={balanceInputValueRef} onInput={this.balanceInputValue} disabled={isRichest || selectedProduct} />
+        <input ref={balanceInputValueRef} onInput={this.balanceInputValue} disabled={localIsRichest || selectedProduct} />
       </form>
     )
   }
@@ -83,7 +83,10 @@ InsertBanknoteForm.propTypes = {
       id: PropTypes.number.isRequired,
     })
   ).isRequired,
-  balanceInputValueRef: PropTypes.string.isRequired,
+
+  balanceInputValueRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.elementType })])
+    .isRequired,
+
   setValuesOfInsertBanknoteForm: PropTypes.func.isRequired,
   balance: PropTypes.number.isRequired,
   selectedProduct: PropTypes.number.isRequired,

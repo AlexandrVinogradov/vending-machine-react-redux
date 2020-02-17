@@ -88,4 +88,9 @@ class App extends React.Component {
     )
   }
 }
+
+// App.defaultProps = {
+//   foundSelectedProduct: 0,
+// }
+
 export default App
