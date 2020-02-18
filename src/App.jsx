@@ -25,7 +25,7 @@ class App extends React.Component {
       balance: 0,
       selectedProduct: 0,
       coins: [],
-      isRichest: 0,
+      isRichest: false,
     }
   }
 
@@ -48,7 +48,7 @@ class App extends React.Component {
       balance: 0,
       selectedProduct: 0,
       coins: [],
-      isRichest: 0,
+      isRichest: false,
     })
   }
 
@@ -88,9 +88,5 @@ class App extends React.Component {
     )
   }
 }
-
-// App.defaultProps = {
-//   foundSelectedProduct: 0,
-// }
 
 export default App
