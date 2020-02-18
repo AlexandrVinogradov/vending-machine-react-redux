@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import s from './ResultForm.module.scss'
 
 const CoinChange = props => {
-
   const { coins1, coins2, coins5, coins10 } = props
 
   return (
@@ -21,7 +20,7 @@ const ResultForm = props => {
   const coinChange = coins.map(c => (
     <CoinChange key={c.index} coins10={c[10]} coins5={c[5]} coins2={c[2]} coins1={c[1]} />
   ))
-
+  
   return (
     <div>
       <div className={s.dialogBoard}>
@@ -48,8 +47,9 @@ const ResultForm = props => {
     </div>
   )
 }
+
 ResultForm.defaultProps = {
-  foundSelectedProduct: 0
+  foundSelectedProduct: null,
 }
 CoinChange.defaultProps = {
   coins1: null,
@@ -66,8 +66,23 @@ CoinChange.propTypes = {
 ResultForm.propTypes = {
   selectedProduct: PropTypes.number.isRequired,
   takeProduct: PropTypes.func.isRequired,
-  coins: PropTypes.arrayOf(PropTypes.number).isRequired,
-  foundSelectedProduct: PropTypes.number,
   change: PropTypes.number.isRequired,
+
+  coins: PropTypes.arrayOf(
+    PropTypes.shape({
+      10: PropTypes.number,
+      5: PropTypes.number,
+      2: PropTypes.number,
+      1: PropTypes.number,
+    })
+  ).isRequired,
+
+  foundSelectedProduct: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    desc: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+  }),
 }
+
 export default ResultForm

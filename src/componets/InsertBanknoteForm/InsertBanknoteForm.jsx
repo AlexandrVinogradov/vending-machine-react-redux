@@ -68,7 +68,11 @@ class InsertBanknoteForm extends React.Component {
           Available banknotes: 50, 100, 200, 500 or 1000 R. The machine gives change in 1, 2, 5 and 10 R coins.
         </p>
 
-        <input ref={balanceInputValueRef} onInput={this.balanceInputValue} disabled={localIsRichest || selectedProduct} />
+        <input
+          ref={balanceInputValueRef}
+          onInput={this.balanceInputValue}
+          disabled={localIsRichest || selectedProduct}
+        />
       </form>
     )
   }
@@ -84,8 +88,7 @@ InsertBanknoteForm.propTypes = {
     })
   ).isRequired,
 
-  balanceInputValueRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.elementType })])
-    .isRequired,
+  balanceInputValueRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]).isRequired,
 
   setValuesOfInsertBanknoteForm: PropTypes.func.isRequired,
   balance: PropTypes.number.isRequired,

@@ -89,16 +89,19 @@ class ChooseProductForm extends React.Component {
   }
 
   render() {
-    const { 
-      // errorMessageIncorrect, 
-      balance, selectedProduct, productInputValueRef } = this.props
+    const {
+      // errorMessageIncorrect,
+      balance,
+      selectedProduct,
+      productInputValueRef,
+    } = this.props
     const { errorMessage, isError } = this.state
 
     let dialogBoard
 
     // if (errorMessageIncorrect) {
     //   dialogBoard = errorMessageIncorrect
-    // } else 
+    // } else
     if (balance === 0) {
       dialogBoard = '>'
     } else if (isError) {
@@ -134,10 +137,7 @@ ChooseProductForm.propTypes = {
     })
   ).isRequired,
 
-  productInputValueRef: PropTypes.oneOfType([
-    PropTypes.func,
-    PropTypes.shape({ current: PropTypes.elementType })
-  ]).isRequired,
+  productInputValueRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]).isRequired,
 
   balance: PropTypes.number.isRequired,
   setValuesOfChooseProductForm: PropTypes.func.isRequired,
